@@ -1,0 +1,81 @@
+
+.frame img::after {
+  content: "";  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #FFF0, #FFFF);
+}
+
+.frame {
+  max-width: 1400px;
+  height: 800px;
+  margin: 40px auto;
+  background-image: 
+    radial-gradient( circle closest-side at 400px 420px ,#FFFFFF00 80%, #FFFFFFFF),
+    url("images/ski-wichtel.jpg");
+  background-size: auto 800px;
+}
+
+main.content {
+  position: relative;
+  top: 80px;
+  margin: 50px 0px 0px auto;
+  width: 540px;
+  background-color: #FFFFFFDD;
+
+  padding: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main.content h1 {
+  color: #d11c1c;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-shadow: 2px 2px 2px #ccc;
+}
+
+.wichtel-list li{
+  margin: 20px 0px;
+}
+
+.wichtel-list li>input {
+  border: none;
+  border-bottom: 1px #AAA solid;
+  font-size: 14px;
+}
+
+.wichtel-list li>input::placeholder {
+  font-size: 16px;
+}
+
+.form button {
+  margin: 15px 10px 10px 60px ;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor: pointer;
+
+	color: #777777;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+.form button:hover {
+	box-shadow:inset 0px 1px 0px 0px #fe1a00;
+	border:1px solid #d83526;
+  background:linear-gradient(to bottom, #d11c1c 5%, #fe1a00 100%);
+	background-color:#d11c1c;
+
+	color:#FFF;
+	text-shadow:0px 1px 0px #b23e35;
+}
+.form button:active {
+	position:relative;
+	top:1px;
+}
