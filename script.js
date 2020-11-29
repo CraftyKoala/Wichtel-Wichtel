@@ -31,7 +31,19 @@ function drawPairs(event) {
 
   try {
     let wichtelList = getWichtel();
-    let wichtelAssignments = mapWichtel(wichtelList);
+    let wichtelAssignments = null;
+    do {
+      try {
+        wichtelAssignments = mapWichtel(wichtelList);
+      } catch (error) {
+        if(error instanceof LastOneLeftExeption){
+          wichtelAssignments = false;
+          console.log(" Last one left - nochmal ")
+        } else {
+          throw error;
+        }
+      }
+    } while(wichtelAssignments == false);
     console.log(wichtelAssignments);
 
     showResults(wichtelAssignments)
@@ -93,6 +105,10 @@ function findWichtelPartner(wichtel, wichtelList) {
     throw new CantPairExeption(wichtel);
   }
 
+  if(match == wichtel){
+    throw new LastOneLeftExeption();
+  }
+
   wichtelList.splice(index, 1)
   return match;
 }
@@ -129,4 +145,9 @@ function getAssignmentLine(wichtel, partner) {
 function CantPairExeption(name) {
   this.message = "Can't find match for " + name;
   this.name = "Can't pair exeption"
+}
+
+function LastOneLeftExeption() {
+  this.message = "Only one person left to match";
+  this.name = "Last one left exception"
 }
