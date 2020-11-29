@@ -1,15 +1,28 @@
-
-.frame img::after {
-  content: "";  
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to bottom, #FFF0, #FFFF);
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.frame {
+header {
+  display: flex;
+  box-shadow: 0px 4px 28px #eee;
+}
+
+header .logo{
+  height: 30px;
+  margin: 10px 100px;
+}
+
+header .title{
+  align-self: center;
+  margin: 10px 10px;
+  color: #49596A;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.frame {  
   max-width: 1400px;
   height: 800px;
   margin: 40px auto;
@@ -27,31 +40,61 @@ main.content {
   background-color: #FFFFFFDD;
 
   padding: 40px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 main.content h1 {
-  color: #d11c1c;
+  color: #309020;
   font-family: "Comic Sans MS", cursive, sans-serif;
-  text-shadow: 2px 2px 2px #ccc;
+  font-weight: lighter;
 }
 
-.wichtel-list li{
+.wichtel-list {
+  padding: 0px;
+  list-style-type: none;
+}
+
+.wichtel-list li {
   margin: 20px 0px;
+  display: flex;
+  width: 400px;
+  background: #eeeeee;
+  border-radius: 8px;
 }
 
-.wichtel-list li>input {
-  border: none;
-  border-bottom: 1px #AAA solid;
-  font-size: 14px;
+.wichtel-list li>.material-icons {
+	padding: 7px 0px;
+  font-size: 22px;
+  color: #d11c1c;
 }
 
-.wichtel-list li>input::placeholder {
+.wichtel-list li>.person {
+	padding: 7px 10px;
+  color: #309020;
+}
+
+.wichtel-list li>.wichtel, 
+.wichtel-list li>.partner {
+  width: 300px;
+	padding: 10px 10px;
   font-size: 16px;
 }
 
-.form button {
-  margin: 15px 10px 10px 60px ;
+.wichtel-list li>input {
+  width: 300px;
+  background: #0000;
+  border: none;
+  padding: 10px 10px;
+  font-size: 16px;
+}
+
+.wichtel-list li>.remove {
+  color: #d13e3e;
+  cursor: pointer;
+}
+
+.wichtel-form button.submit,
+.wichtel-partner button.return {
+  margin: 15px 10px 10px 40px ;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 	background-color:#ededed;
@@ -66,7 +109,8 @@ main.content h1 {
 	padding: 6px 24px;
 	text-shadow: 0px 1px 0px #ffffff;
 }
-.form button:hover {
+.wichtel-form button.submit:hover
+.wichtel-partner button.return:hover {
 	box-shadow:inset 0px 1px 0px 0px #fe1a00;
 	border:1px solid #d83526;
   background:linear-gradient(to bottom, #d11c1c 5%, #fe1a00 100%);
@@ -74,8 +118,4 @@ main.content h1 {
 
 	color:#FFF;
 	text-shadow:0px 1px 0px #b23e35;
-}
-.form button:active {
-	position:relative;
-	top:1px;
 }

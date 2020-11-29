@@ -5,30 +5,57 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>repl.it</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="style.css" rel="stylesheet" type="text/css" />
   <script src="script.js" defer></script>
 </head>
 
 <body>
+  <header>
+    <img class="logo" src="images/hacker-school.png"/>
+    <div class="title">Weihnachts Programmieren</div>
+  </header>
   <div class="frame">
     <main class="content">
       <h1>Ben der Wichtel Wichtel</h1>
-      <div>
+      <div class="anouncement">
         <p>Hallo, ich bin Benedict Butter Burley. Du kannst mich aber <q>Ben</q> nennen.</p>
-        <p>Ist es nicht toll sich gegenseitig Geschenke zu machen ? <br> Ich bin ein Wichtel und ich liebe es zu wichteln. Deshalb möchte ich euch dabei helfen Geschenkepartner zu finden.
+        <p>Ist es nicht toll sich gegenseitig Geschenke zu machen ? <br> Ich bin ein Wichtel und ich liebe es zu wichteln. 
+           Deshalb möchte ich euch dabei helfen Wichtelpartner zu finden.
            Sagt mir doch wer Geschenke schenken möchte.</p>
       </div>
-      <div class="form">
-        <h4>Wichtel-Gruppe:</h4>
-        <form id="wichtel" action="" method="GET">
-          <ol class="wichtel-list">
-            <li><input class="wichtel" name="wichtel1" type="text" placeholder="Wichtel Name" ></li>
-            <li><input class="wichtel" name="wichtel2" type="text" placeholder="Wichtel Name" ></li>
-            <li><input class="wichtel" name="wichtel3" type="text" placeholder="Wichtel Name" ></li>
-            <li><input class="wichtel" name="wichtel4" type="text" placeholder="Wichtel Name" ></li>
-          </ol>
-          <button>Wichteln !</button>
+      <h4>Wichtel-Gruppe:</h4>
+      <div class="wichtel-form">
+        <form>
+          <ul class="wichtel-list">
+            <li>
+              <span class="person material-icons">person</span>
+              <input class="wichtel" type="text" placeholder="Wichtel Name" >
+              <!--<span class="remove material-icons">remove_circle_outline</span>-->
+            </li>
+            <li>
+              <span class="person material-icons">person</span>
+              <input class="wichtel" type="text" placeholder="Wichtel Name" >
+              <!--<span class="remove material-icons">remove_circle_outline</span>-->
+            </li>
+            <li>
+              <span class="person material-icons">person</span>
+              <input class="wichtel" type="text" placeholder="Wichtel Name" >
+              <!--<span class="remove material-icons">remove_circle_outline</span>-->
+            </li>
+            <li>
+              <span class="person material-icons">person</span>
+              <input class="wichtel" type="text" placeholder="Wichtel Name" >
+              <!--<span class="remove material-icons">remove_circle_outline</span>-->
+            </li>
+          </ul>
+          <button class="submit" type="submit" >Wichteln !</button>
         </form> 
+      </div>
+      <div class="wichtel-partner" style="display:none;">
+        <ul class="wichtel-list">         
+        </ul>
+        <button class="return">nochmal</button>
       </div>
     </main>
   </div>
