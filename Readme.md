@@ -17,5 +17,5 @@ ski-wichtel : https://pixabay.com/de/photos/winter-skifahren-wintersport-spa%C3%
      - every participant has only one gifting partner
   d. Implement creation of a result list
 2. Implement logic to avoid the last one left problem with an uneven number of participants
-3. Validate inputs to avoid empty inputs
-4. implement dynamic list of participants
+3. implement dynamic list of participants
+4. Validate inputs to avoid empty inputs

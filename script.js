@@ -4,17 +4,44 @@
 */
 
 // -- Selectors ----------------------------------------------------------------
-const wichtelBlock = document.querySelector(".wichtel-form");
+
+const wichtelAddButton = document.querySelector(".wichtel-add .add");
+const newWichtel = document.querySelector(".wichtel-add .newWichtel");
+
 const wichtelButton = document.querySelector("button.submit");
+const wichtelBlock = document.querySelector(".wichtel-form");
+const wichtelBlockList = document.querySelector(".wichtel-form .wichtel-list");
+
 const wichtelPartnerBlock = document.querySelector(".wichtel-partner");
 const wichtelPartnerList = document.querySelector(".wichtel-partner .wichtel-list");
 const returnButton = document.querySelector("button.return");
 
 // -- Event Listeners ----------------------------------------------------------
-wichtelButton.addEventListener("click", drawPairs)
-returnButton.addEventListener("click", returnToList)
+wichtelAddButton.addEventListener("click", addWichtel);
+newWichtel.addEventListener("keypress", addWichtel);
+
+wichtelBlockList.addEventListener("click", removeWichtel);
+wichtelButton.addEventListener("click", drawPairs);
+
+returnButton.addEventListener("click", returnToList);
 
 // -- Logik --------------------------------------------------------------------
+
+function addWichtel(e) {
+  if (e instanceof MouseEvent || e.key === 'Enter') {
+    // Stope das neu laden der Seite
+    event.preventDefault();
+    wichtelBlockList.innerHTML += getWichtelLine(newWichtel.value);
+    newWichtel.value = "";
+  }
+}
+
+function removeWichtel(e) {
+  let element = e.target;
+  if(element.classList[0] === "remove") {
+    element.parentElement.remove();
+  }
+}
 
 function returnToList() {
   wichtelBlock.style.display = "block";  
@@ -61,7 +88,7 @@ function getWichtel() {
   let wichtelList = [];
   let wichtelInput = document.querySelectorAll(".wichtel-form .wichtel");
   for (const input of wichtelInput) {
-    wichtelList.push(input.value);
+    wichtelList.push(input.textContent);
   }
   return wichtelList;
 }
@@ -135,6 +162,17 @@ function getAssignmentLine(wichtel, partner) {
       `<span class="material-icons">card_giftcard</span>`,
       `<span class="material-icons">arrow_right</span>`,
       `<span class="partner">${partner}</span>`,
+    `</li>`
+  ]
+  return template.join("\n");
+}
+
+function getWichtelLine(wichtel){  
+  let template = [
+    `<li>`,
+      `<span class="person material-icons">person</span>`,
+      `<span class="wichtel">${wichtel}</span>`,
+      `<span class="remove material-icons">remove_circle_outline</span>`,
     `</li>`
   ]
   return template.join("\n");

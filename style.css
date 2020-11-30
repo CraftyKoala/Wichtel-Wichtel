@@ -53,7 +53,8 @@ main.content h1 {
   list-style-type: none;
 }
 
-.wichtel-list li {
+.wichtel-list li,
+.wichtel-add {
   margin: 20px 0px;
   display: flex;
   width: 400px;
@@ -61,13 +62,15 @@ main.content h1 {
   border-radius: 8px;
 }
 
-.wichtel-list li>.material-icons {
+.wichtel-list li>.material-icons,
+.wichtel-add .material-icons {
 	padding: 7px 0px;
   font-size: 22px;
   color: #d11c1c;
 }
 
-.wichtel-list li>.person {
+.wichtel-list li>.person,
+.wichtel-add .person {
 	padding: 7px 10px;
   color: #309020;
 }
@@ -79,12 +82,19 @@ main.content h1 {
   font-size: 16px;
 }
 
-.wichtel-list li>input {
+.wichtel-add input {
   width: 300px;
   background: #0000;
   border: none;
   padding: 10px 10px;
   font-size: 16px;
+}
+
+.wichtel-add .add {
+  background: none;
+  border: none;
+  color: #309020;
+  cursor: pointer;
 }
 
 .wichtel-list li>.remove {
@@ -93,8 +103,9 @@ main.content h1 {
 }
 
 .wichtel-form button.submit,
+.wichtel-form button.more,
 .wichtel-partner button.return {
-  margin: 15px 10px 10px 40px ;
+  margin: 15px 0px 10px 20px ;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 	background-color:#ededed;
@@ -106,10 +117,20 @@ main.content h1 {
 	color: #777777;
 	font-size: 15px;
 	font-weight: bold;
-	padding: 6px 24px;
+	padding: 6px 12px;
 	text-shadow: 0px 1px 0px #ffffff;
 }
-.wichtel-form button.submit:hover
+
+.wichtel-form button.more i {
+  padding: 0px;
+	font-size: 19px;
+  line-height: 15px;
+  vertical-align: -4px;
+  font-weight: bold;
+}
+
+.wichtel-form button.submit:hover,
+.wichtel-form button.more:hover,
 .wichtel-partner button.return:hover {
 	box-shadow:inset 0px 1px 0px 0px #fe1a00;
 	border:1px solid #d83526;
