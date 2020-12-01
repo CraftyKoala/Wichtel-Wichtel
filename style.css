@@ -37,15 +37,31 @@ main.content {
   top: 80px;
   margin: 50px 0px 0px auto;
   width: 540px;
-  background-color: #FFFFFFDD;
-
-  padding: 40px;
 }
 
 main.content h1 {
-  color: #309020;
+  margin: 0px 0px;
+  padding: 20px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: lighter;
+
+  color: #309020;
+}
+
+main.content p {
+  margin: 0px 0px;
+  padding: 0px 20px 10px;
+}
+
+.wichtel-form,
+.wichtel-partner {  
+  margin-top: 10px;
+  padding: 5px 20px;
+  background-color: #dd0000;
+  border-radius: 20px;
+  box-shadow: 1px 1px 8px #aaaaaa;
+
+  color: #ffffff;
 }
 
 .wichtel-list {
@@ -57,8 +73,9 @@ main.content h1 {
 .wichtel-add {
   margin: 20px 0px;
   display: flex;
-  width: 400px;
-  background: #eeeeee;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: inset 1px 1px 8px #aaaaaa;
   border-radius: 8px;
 }
 
@@ -67,6 +84,7 @@ main.content h1 {
 	padding: 7px 0px;
   font-size: 22px;
   color: #d11c1c;
+  vertical-align: middle;
 }
 
 .wichtel-list li>.person,
@@ -77,27 +95,41 @@ main.content h1 {
 
 .wichtel-list li>.wichtel, 
 .wichtel-list li>.partner {
-  width: 300px;
+  width: 500px;
 	padding: 10px 10px;
   font-size: 16px;
+
+  color: #000000;
+  vertical-align: middle;
+}
+
+.wichtel-list li>.partner {
+  visibility: hidden;
 }
 
 .wichtel-add input {
-  width: 300px;
+  width: 500px;
   background: #0000;
   border: none;
   padding: 10px 10px;
   font-size: 16px;
+  text-align: left;
 }
 
-.wichtel-add .add {
+.wichtel-add .add {  
+	padding: 7px 10px;
   background: none;
   border: none;
   color: #309020;
   cursor: pointer;
 }
 
+.wichtel-list .gift {
+  cursor: pointer;
+}
+
 .wichtel-list li>.remove {
+	padding: 7px 10px;
   color: #d13e3e;
   cursor: pointer;
 }
@@ -107,7 +139,7 @@ main.content h1 {
 .wichtel-partner button.return {
   margin: 15px 0px 10px 20px ;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #efefef 100%);
 	background-color:#ededed;
 	border-radius:6px;
 	border:1px solid #dcdcdc;
@@ -132,11 +164,11 @@ main.content h1 {
 .wichtel-form button.submit:hover,
 .wichtel-form button.more:hover,
 .wichtel-partner button.return:hover {
-	box-shadow:inset 0px 1px 0px 0px #fe1a00;
-	border:1px solid #d83526;
-  background:linear-gradient(to bottom, #d11c1c 5%, #fe1a00 100%);
-	background-color:#d11c1c;
+	box-shadow:inset 0px 1px 0px 0px #11d100;
+	border:1px solid #23a717;
+  background:linear-gradient(to bottom, #23a717 5%, #11d100 100%);
+	background-color:#23a717;
 
 	color:#FFF;
-	text-shadow:0px 1px 0px #b23e35;
+	text-shadow:0px 1px 0px #23a717;
 }

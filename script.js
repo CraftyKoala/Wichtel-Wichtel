@@ -8,8 +8,8 @@
 const wichtelAddButton = document.querySelector(".wichtel-add .add");
 const newWichtel = document.querySelector(".wichtel-add .newWichtel");
 
-const wichtelButton = document.querySelector("button.submit");
 const wichtelBlock = document.querySelector(".wichtel-form");
+const wichtelButton = document.querySelector(".wichtel-form button.submit");
 const wichtelBlockList = document.querySelector(".wichtel-form .wichtel-list");
 
 const wichtelPartnerBlock = document.querySelector(".wichtel-partner");
@@ -21,6 +21,8 @@ wichtelAddButton.addEventListener("click", addWichtel);
 newWichtel.addEventListener("keypress", addWichtel);
 
 wichtelBlockList.addEventListener("click", removeWichtel);
+wichtelPartnerList.addEventListener("mouseover", showPartner);
+wichtelPartnerList.addEventListener("mouseout", hidePartner);
 wichtelButton.addEventListener("click", drawPairs);
 
 returnButton.addEventListener("click", returnToList);
@@ -40,6 +42,22 @@ function removeWichtel(e) {
   let element = e.target;
   if(element.classList[0] === "remove") {
     element.parentElement.remove();
+  }
+}
+
+function showPartner(e) {
+  let element = e.target;  
+  if(element.classList[0] === "gift") {
+    let partner = element.parentElement.children[4];
+    partner.style.visibility = "visible";
+  }
+}
+
+function hidePartner(e) {
+  let element = e.target;  
+  if(element.classList[0] === "gift") {
+    let partner = element.parentElement.children[4];
+    partner.style.visibility = "hidden";
   }
 }
 
@@ -159,7 +177,7 @@ function getAssignmentLine(wichtel, partner) {
     `<li>`,
       `<span class="person material-icons">person</span>`,
       `<span class="wichtel">${wichtel}</span>`,
-      `<span class="material-icons">card_giftcard</span>`,
+      `<span class="gift material-icons">card_giftcard</span>`,
       `<span class="material-icons">arrow_right</span>`,
       `<span class="partner">${partner}</span>`,
     `</li>`
