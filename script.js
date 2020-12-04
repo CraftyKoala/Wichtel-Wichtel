@@ -16,12 +16,32 @@ const wichtelPartnerBlock = document.querySelector(".wichtel-partner");
 const wichtelPartnerList = document.querySelector(".wichtel-partner .wichtel-list");
 const returnButton = document.querySelector("button.return");
 
-// Pairing logic ---------------------------------------------------------------
+// -- Name input ---------------------------------------------------------------
 
 // EventHandlers
 wichtelAddButton.addEventListener("click", addWichtel);
 newWichtel.addEventListener("keypress", addWichtel);
 wichtelBlockList.addEventListener("click", removeWichtel);
+
+function addWichtel(e) {
+  if (e instanceof MouseEvent || e.key === 'Enter') {
+    // Stope das neu laden der Seite
+    event.preventDefault();
+    wichtelBlockList.innerHTML += getWichtelLine(newWichtel.value);
+    newWichtel.value = "";
+  }
+}
+
+function removeWichtel(e) {
+  let element = e.target;
+  if(element.classList[0] === "remove") {
+    element.parentElement.remove();
+  }
+}
+
+// Pairing logic ---------------------------------------------------------------
+
+// EventHandlers
 wichtelButton.addEventListener("click", drawPairs);
 
 /*
@@ -155,24 +175,6 @@ function hidePartner(e) {
 function returnToList() {
   wichtelBlock.style.display = "block";  
   wichtelPartnerBlock.style.display = "none";
-}
-
-// Name input ----
-
-function addWichtel(e) {
-  if (e instanceof MouseEvent || e.key === 'Enter') {
-    // Stope das neu laden der Seite
-    event.preventDefault();
-    wichtelBlockList.innerHTML += getWichtelLine(newWichtel.value);
-    newWichtel.value = "";
-  }
-}
-
-function removeWichtel(e) {
-  let element = e.target;
-  if(element.classList[0] === "remove") {
-    element.parentElement.remove();
-  }
 }
 
 // -- Templates ----------------------------------------------------------------
