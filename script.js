@@ -16,55 +16,13 @@ const wichtelPartnerBlock = document.querySelector(".wichtel-partner");
 const wichtelPartnerList = document.querySelector(".wichtel-partner .wichtel-list");
 const returnButton = document.querySelector("button.return");
 
-// -- Event Listeners ----------------------------------------------------------
+// Pairing logic ---------------------------------------------------------------
+
+// EventHandlers
 wichtelAddButton.addEventListener("click", addWichtel);
 newWichtel.addEventListener("keypress", addWichtel);
-
 wichtelBlockList.addEventListener("click", removeWichtel);
-wichtelPartnerList.addEventListener("mouseover", showPartner);
-wichtelPartnerList.addEventListener("mouseout", hidePartner);
 wichtelButton.addEventListener("click", drawPairs);
-
-returnButton.addEventListener("click", returnToList);
-
-// -- Logik --------------------------------------------------------------------
-
-function addWichtel(e) {
-  if (e instanceof MouseEvent || e.key === 'Enter') {
-    // Stope das neu laden der Seite
-    event.preventDefault();
-    wichtelBlockList.innerHTML += getWichtelLine(newWichtel.value);
-    newWichtel.value = "";
-  }
-}
-
-function removeWichtel(e) {
-  let element = e.target;
-  if(element.classList[0] === "remove") {
-    element.parentElement.remove();
-  }
-}
-
-function showPartner(e) {
-  let element = e.target;  
-  if(element.classList[0] === "gift") {
-    let partner = element.parentElement.children[4];
-    partner.style.visibility = "visible";
-  }
-}
-
-function hidePartner(e) {
-  let element = e.target;  
-  if(element.classList[0] === "gift") {
-    let partner = element.parentElement.children[4];
-    partner.style.visibility = "hidden";
-  }
-}
-
-function returnToList() {
-  wichtelBlock.style.display = "block";  
-  wichtelPartnerBlock.style.display = "none";
-}
 
 /*
   Lost die Wichtel-Partner aus.
@@ -100,7 +58,7 @@ function drawPairs(event) {
 }
 
 /*
-  List die Wichtel-Teilnehmer aus den Input-Feldern.
+  Step 1 : List die Wichtel-Teilnehmer aus den Input-Feldern.
 */
 function getWichtel() {
   let wichtelList = [];
@@ -112,7 +70,7 @@ function getWichtel() {
 }
 
 /*
-  Ordnet jedem telnehmer einen partner zu.
+  Step 2 : Ordnet jedem telnehmer einen partner zu.
 */
 function mapWichtel(wichtelList){
   let wichtelAssignments = new Map();
@@ -125,6 +83,7 @@ function mapWichtel(wichtelList){
 }
 
 /* 
+  Step 2.1
   Findet einen Wichtel-Partner der den Anforderungen entspricht
   - Partner muss anders heißen als empfänger wichtel.
   - Partner darf noch keinen anderen beschenken
@@ -168,6 +127,52 @@ function showResults(wichtelAssignments) {
   }
   wichtelBlock.style.display = "none";  
   wichtelPartnerBlock.style.display = "block";
+}
+
+// -- Result Logik -------------------------------------------------------------
+
+// EventHandlers
+wichtelPartnerList.addEventListener("mouseover", showPartner);
+wichtelPartnerList.addEventListener("mouseout", hidePartner);
+returnButton.addEventListener("click", returnToList);
+
+function showPartner(e) {
+  let element = e.target;  
+  if(element.classList[0] === "gift") {
+    let partner = element.parentElement.children[4];
+    partner.style.visibility = "visible";
+  }
+}
+
+function hidePartner(e) {
+  let element = e.target;  
+  if(element.classList[0] === "gift") {
+    let partner = element.parentElement.children[4];
+    partner.style.visibility = "hidden";
+  }
+}
+
+function returnToList() {
+  wichtelBlock.style.display = "block";  
+  wichtelPartnerBlock.style.display = "none";
+}
+
+// Name input ----
+
+function addWichtel(e) {
+  if (e instanceof MouseEvent || e.key === 'Enter') {
+    // Stope das neu laden der Seite
+    event.preventDefault();
+    wichtelBlockList.innerHTML += getWichtelLine(newWichtel.value);
+    newWichtel.value = "";
+  }
+}
+
+function removeWichtel(e) {
+  let element = e.target;
+  if(element.classList[0] === "remove") {
+    element.parentElement.remove();
+  }
 }
 
 // -- Templates ----------------------------------------------------------------

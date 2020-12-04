@@ -134,9 +134,9 @@ main.content p {
   cursor: pointer;
 }
 
-.wichtel-form button.submit,
-.wichtel-form button.more,
-.wichtel-partner button.return {
+button.submit,
+button.more,
+button.return {
   margin: 15px 0px 10px 20px ;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ffffff 5%, #efefef 100%);
@@ -153,7 +153,7 @@ main.content p {
 	text-shadow: 0px 1px 0px #ffffff;
 }
 
-.wichtel-form button.more i {
+button.more i {
   padding: 0px;
 	font-size: 19px;
   line-height: 15px;
@@ -161,9 +161,9 @@ main.content p {
   font-weight: bold;
 }
 
-.wichtel-form button.submit:hover,
-.wichtel-form button.more:hover,
-.wichtel-partner button.return:hover {
+button.submit:hover,
+button.more:hover,
+button.return:hover {
 	box-shadow:inset 0px 1px 0px 0px #11d100;
 	border:1px solid #23a717;
   background:linear-gradient(to bottom, #23a717 5%, #11d100 100%);

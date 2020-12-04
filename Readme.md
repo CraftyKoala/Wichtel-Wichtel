@@ -10,7 +10,7 @@ ski-wichtel : https://pixabay.com/de/photos/winter-skifahren-wintersport-spa%C3%
 ## Tasks
 
 1. Create generator for random pairing of 4 participants
-  a. Design page with description 4 input fields and one button
+  a. Use template 4 input fields and one button
   b. Implement event listener for button
   c. Implement pairing logic with conditions
      - the participants can not give gifts to them selfs
